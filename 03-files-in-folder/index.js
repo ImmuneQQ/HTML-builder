@@ -1,12 +1,12 @@
 const path = require('node:path');
-const {readdir} = require('node:fs/promises');
-const {stat} = require('node:fs');
-const {stdout} = process;
+const { readdir } = require('node:fs/promises');
+const { stat } = require('node:fs');
+const { stdout } = process;
 
 async function filesInFolder(folder) {
-  const files = await readdir(folder, {withFileTypes: true});
+  const files = await readdir(folder, { withFileTypes: true });
 
-  files.forEach(file => {
+  files.forEach((file) => {
     if (file.isFile()) {
       const fullFileName = file.name;
       const extFile = path.extname(fullFileName);
